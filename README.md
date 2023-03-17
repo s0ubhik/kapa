@@ -26,6 +26,10 @@ kapa Hello Jack
 ```bash
 kapa -c
 ```
+
 # Preview
 
 ![preview](img/preview.png)
+
+# Bugs
+- [] Widget disappers on click
