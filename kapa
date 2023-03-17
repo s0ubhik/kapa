@@ -1,0 +1,65 @@
+cm_file=~/.cache/kapa
+version=v1.0
+
+show_usage(){
+    cat << EOF
+Usage: kapa [OPTIONS] TEXT
+Add Text to desktop kapa widget
+
+Options:
+    -c, --clear             clear text
+    -s, --start             start kapa
+    -v, --version           display version
+    -h, --help              display help
+EOF
+    exit 0
+}
+
+# append text to the cache file
+kapa_add(){
+    echo $1 >> $cm_file
+}
+
+if [ $# -eq 0 ]; then
+    show_usage
+fi
+
+while :; do
+    case $1 in
+        -c|--clear) clear="SET"          
+        ;;
+        -h|--help) help="SET"            
+        ;;
+        -s|--start) strt="SET"            
+        ;;
+        -v|--version) ver="SET"            
+        ;;
+        *) break
+    esac
+    shift
+done
+
+# clear the file
+if [ "$clear" == "SET" ]; then
+    echo > $cm_file
+    echo "Cleared"
+    if [ $# -ge 1 ]; then
+        kapa_add "${*:1}"
+    fi
+
+# show usage
+elif [ "$help" == "SET" ]; then
+    show_usage
+
+# show version
+elif [ "$ver" == "SET" ]; then
+    echo $version
+    exit 0
+
+# start kapa conky
+elif [ "$strt" == "SET" ]; then
+    conky -c $HOME/.config/conky/kapa/kapa.conf
+
+else
+    kapa_add "${*:1}"
+fi

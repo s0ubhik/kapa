@@ -1,0 +1,6 @@
+trgt=$HOME/.config/conky/kapa
+echo "Installing Kapa ..."
+mkdir -vp $trgt
+cp -r * $trgt/
+cd $trgt
+sudo ln kapa /usr/local/bin/kapa

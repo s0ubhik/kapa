@@ -1,0 +1,4 @@
+trgt=$HOME/.config/conky/kapa
+echo "Uninstalling Kapa ..."
+sudo rm /usr/local/bin/kapa
+rm -rf $trgt
