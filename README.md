@@ -32,4 +32,4 @@ kapa -c
 ![preview](img/preview.png)
 
 # Bugs
-- [] Widget disappers on click
+- [ ] Widget disappers on click
