@@ -1,3 +1,4 @@
+#!/bin/bash
 cm_file=~/.cache/kapa
 version=v1.0
 
